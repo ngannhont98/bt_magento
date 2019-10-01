@@ -3,9 +3,10 @@ namespace Smartosc\Article\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
 use \Magento\Framework\View\Result\PageFactory;
+
 /**
  * Class DisplayArticle
- * @package Smartosc\Article\Controller\Inde
+ * @package Smartosc\Article\Controller\Index
  */
 class DisplayArticle extends \Magento\Framework\App\Action\Action
 {

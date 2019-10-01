@@ -2,14 +2,13 @@
 namespace Smartosc\Article\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
-use \Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\PageFactory;
 
 /**
- * Class DisplayArticle
+ * Class DetailArticle
  * @package Smartosc\Article\Controller\Index
  */
-class AddArticle extends \Magento\Framework\App\Action\Action
-
+class DetailArticle extends \Magento\Framework\App\Action\Action
 {
     protected $pageFactory;
 

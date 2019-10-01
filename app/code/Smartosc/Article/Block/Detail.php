@@ -5,7 +5,7 @@ use Magento\Framework\View\Element\Template;
 use Smartosc\Article\Model\ResourceModel\Article\CollectionFactory;
 
 
-class Display extends \Magento\Framework\View\Element\Template{
+class Detail extends \Magento\Framework\View\Element\Template{
 
     protected $articleFactory;
 
@@ -14,11 +14,6 @@ class Display extends \Magento\Framework\View\Element\Template{
         $this->articleFactory = $articleFactory;
         parent::__construct($context);
     }
-
-//    public function collection()
-//    {
-//        return ['data'=>'data ne'];
-//    }
 
     public function getArticleCollection()
     {
