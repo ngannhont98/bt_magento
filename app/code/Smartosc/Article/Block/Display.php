@@ -22,6 +22,11 @@ class Display extends \Magento\Framework\View\Element\Template{
 
     public function getArticleCollection()
     {
-        return $article = $this->articleFactory->create();
+        return $this->articleFactory->create();
+    }
+
+    public function getArticleDetail($id)
+    {
+        return  $this->articleFactory->create()->addFieldToFilter(['article_id'],[$id])->getData();
     }
 }
