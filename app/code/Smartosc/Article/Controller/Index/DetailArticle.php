@@ -1,15 +1,13 @@
 <?php
 namespace Smartosc\Article\Controller\Index;
 
-use Magento\Framework\App\Action\Context;
-use \Magento\Framework\View\Result\PageFactory;
 
-/**
- * Class DisplayArticle
- * @package Smartosc\Article\Controller\Index
- */
-class DisplayArticle extends \Magento\Framework\App\Action\Action
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
+class DetailArticle extends \Magento\Framework\App\Action\Action
 {
+
     protected $pageFactory;
 
     public function __construct(Context $context, PageFactory $pageFactory)
@@ -25,5 +23,3 @@ class DisplayArticle extends \Magento\Framework\App\Action\Action
     }
 
 }
-
-

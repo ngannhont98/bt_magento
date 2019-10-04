@@ -3,6 +3,7 @@
  * @var Smartosc\Article\Block\Display $block
  */
 
+$base_url = $this->getBaseUrl();
 ?>
 <style>
     table {
@@ -52,7 +53,6 @@
 
 </style>
 <body>
-<h1>List Articles</h1>
 <table>
     <tr>
         <th class="article-id">Id</th>
@@ -64,10 +64,10 @@
         <th class="article-action">Action</th>
     </tr>
     <?php
-    foreach ( $block->getArticleCollection() as $article) { ?>
+    foreach ( $block->pagning() as $article) { ?>
         <tr>
             <td><?= $article['article_id'] ?></td>
-            <td><a href="?id=<?= $article['article_id'] ?>"><?= $article['title'] ?></a></td>
+            <td><a href="<?=$base_url?>article/index/detailarticle?id=<?= $article['article_id'] ?>"><?= $article['title'] ?></a></td>
             <td><?= $article['content'] ?></td>
             <td><?= $article['image'] ?></td>
             <td><?= $article['created_at'] ?></td>
@@ -80,29 +80,33 @@
     <?php } ?>
 </table>
 
-<table>
-    <tr>
-        <th class="article-id">Id</th>
-        <th class="article-title">Title</th>
-        <th class="article-content">Content</th>
-        <th class="article-image">Image</th>
-        <th class="article-create">Create At</th>
-        <th class="article-update">Update At</th>
-    </tr>
-    <?php
-    if (isset($_GET['id'])) {
-        $data = $block->getArticleDetail($_GET['id']);
-        $detail = $data[0];
-        ?>
-        <tr>
-            <td><?= $detail['article_id'] ?></td>
-            <td><?= $detail['title'] ?></td>
-            <td><?= $detail['content'] ?></td>
-            <td><?= $detail['image'] ?></td>
-            <td><?= $detail['created_at'] ?></td>
-            <td><?= $detail['updated_at'] ?></td>
-        </tr>
-    <?php } ?>
-</table>
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>
+
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th class="article-id">Id</th>-->
+<!--        <th class="article-title">Title</th>-->
+<!--        <th class="article-content">Content</th>-->
+<!--        <th class="article-image">Image</th>-->
+<!--        <th class="article-create">Create At</th>-->
+<!--        <th class="article-update">Update At</th>-->
+<!--    </tr>-->
+<!--    --><?php
+//    if (isset($_GET['id'])) {
+//        $data = $block->getArticleDetail($_GET['id']);
+//        $detail = $data[0];
+//        ?>
+<!--        <tr>-->
+<!--            <td>--><?//= $detail['article_id'] ?><!--</td>-->
+<!--            <td>--><?//= $detail['title'] ?><!--</td>-->
+<!--            <td>--><?//= $detail['content'] ?><!--</td>-->
+<!--            <td>--><?//= $detail['image'] ?><!--</td>-->
+<!--            <td>--><?//= $detail['created_at'] ?><!--</td>-->
+<!--            <td>--><?//= $detail['updated_at'] ?><!--</td>-->
+<!--        </tr>-->
+<!--    --><?php //} ?>
+<!--</table>-->
 </body>
 
